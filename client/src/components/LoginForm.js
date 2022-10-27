@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 // import jwt authentication
-import Auth from '../utils/auth';
+import auth from '../utils/auth';
 
 // import mutations 
 import { useMutation } from '@apollo/client';
@@ -26,9 +26,10 @@ const LoginForm = () => {
 
       try {
         const { data } = await login({
-          variable: {...userFormData}
+          variables: {...userFormData}
         });
-        Auth.login(data.login.token);
+
+        auth.login(data.login.token);
       } catch (e) {
         console.error(e);
         setShowAlert(true);

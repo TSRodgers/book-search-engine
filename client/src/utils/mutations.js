@@ -38,8 +38,8 @@ export const ADD_USER = gql`
           title
           description
           authors
-          link
           image
+          link
         }
       }
     }
